@@ -1,14 +1,27 @@
 import pandas as pd
 
 class calcValuation:
+    """
+    Classe para realizar cálculos de valuation de negócios.
 
-    def __init__(self):
-        print('')
-    
-
+    Esta classe oferece diferentes métodos para calcular métricas financeiras
+    importantes para a avaliação de negócios, como ROI, lucro econômico e fluxo de caixa.
+    """
     def analiseGerencial(self, investimento, capital_proprio, receita, custo_mercadorias, despesas_operacionais, custo_oportunidade, capital_terceiros=None):
         """
-        Primeiro método de valuation. Válido para o dia-a-dia.
+        Realiza uma análise gerencial básica de um negócio.
+
+        Args:
+            investimento (float): Valor total investido no negócio.
+            capital_proprio (float): Valor do capital próprio investido.
+            receita (float): Receita total gerada.
+            custo_mercadorias (float): Custo total das mercadorias vendidas.
+            despesas_operacionais (float): Despesas operacionais totais.
+            custo_oportunidade (float): Taxa de retorno mínima desejada pelo investidor.
+            capital_terceiros (float, optional): Valor do capital de terceiros.
+
+        Returns:
+            pd.DataFrame: Um DataFrame Pandas com as métricas calculadas.
         """
         # Inputs
         self.investimento = investimento
@@ -44,7 +57,22 @@ class calcValuation:
 
     def calcROICampanha(self, quantidade_emails, erros, cliques, vendas, ticket_medio, capital_investido, margem_bruta):
         """
-        ROI = Retorno de Investimento de uma campanha
+        Calcula o retorno sobre o investimento (ROI) de uma campanha de marketing.
+
+        Este método calcula o ROI de uma campanha, considerando métricas como taxa de
+        abertura, taxa de cliques e taxa de conversão.
+
+        Args:
+            quantidade_emails (int): Número total de emails enviados.
+            erros (int): Número de emails com erros de entrega.
+            cliques (int): Número de cliques nos links dos emails.
+            vendas (int): Número de vendas realizadas.
+            ticket_medio (float): Valor médio de cada venda.
+            capital_investido (float): Valor total investido na campanha.
+            margem_bruta (float): Margem bruta das vendas.
+
+        Returns:
+            pd.DataFrame: Um DataFrame Pandas com as métricas calculadas, incluindo o ROI.
         """
         # Inputs
         emails_enviados = quantidade_emails
@@ -76,7 +104,39 @@ class calcValuation:
 
 
     def caseDiskPizza(self, capital_investido, preco_vendas, preco_custo, despesas_fixas, depreciacao, ir, custo_oportunidade, unidades_vendidas, parcela_financiamento=None):
-        
+        """
+        Realiza uma análise financeira detalhada para um negócio de pizza.
+
+        Esta função calcula métricas como EBITDA, EBIT, NOPAT, lucro econômico e fluxo de caixa, 
+        considerando diversos fatores como investimento inicial, custos, receitas e despesas.
+
+        Args:
+            capital_investido (float): Valor total investido no negócio.
+            preco_vendas (float): Preço de venda unitário de uma pizza.
+            preco_custo (float): Preço de custo unitário de uma pizza.
+            despesas_fixas (float): Despesas fixas mensais.
+            depreciacao (float): Depreciação mensal.
+            ir (float): Alíquota do imposto de renda.
+            custo_oportunidade (float): Taxa de retorno mínima desejada pelo investidor.
+            unidades_vendidas (int): Número de pizzas vendidas por mês.
+            parcela_financiamento (float, optional): Valor da parcela do financiamento mensal.
+
+        Returns:
+            pd.DataFrame: Um DataFrame Pandas com as seguintes métricas:
+                * EBITDA
+                * EBIT
+                * NOPAT
+                * Lucro Econômico
+                * Fluxo de Caixa Operacional
+                * Fluxo de Caixa Líquido
+
+        **Observações:**
+            * A função assume que todas as unidades monetárias estão na mesma moeda.
+            * A depreciação é considerada como uma despesa fixa mensal.
+            * O imposto de renda é calculado sobre o lucro operacional bruto (EBIT).
+            * O fluxo de caixa líquido considera o pagamento da parcela do financiamento.
+        """
+
         margem_contribuicao_bruta = preco_vendas - preco_custo
         margem_contribuicao_liquida = margem_contribuicao_bruta * (1 - ir)
 
