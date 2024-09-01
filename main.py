@@ -7,7 +7,7 @@ class calcValuation:
     Esta classe oferece diferentes métodos para calcular métricas financeiras
     importantes para a avaliação de negócios, como ROI, lucro econômico e fluxo de caixa.
     """
-    def analiseGerencial(self, investimento, capital_proprio, receita, custo_mercadorias, despesas_operacionais, custo_oportunidade, capital_terceiros=None):
+    def analiseGerencialSimples(self, investimento, capital_proprio, receita, custo_mercadorias, despesas_operacionais, custo_oportunidade, capital_terceiros=None):
         """
         Realiza uma análise gerencial básica de um negócio.
 
@@ -103,9 +103,9 @@ class calcValuation:
         return pd.DataFrame(dicionario_final_roi)
 
 
-    def caseDiskPizza(self, capital_investido, preco_vendas, preco_custo, despesas_fixas, depreciacao, ir, custo_oportunidade, unidades_vendidas, parcela_financiamento=None):
+    def analiseGerencialCompleta(self, capital_investido, preco_vendas, preco_custo, despesas_fixas, depreciacao, ir, custo_oportunidade, unidades_vendidas, parcela_financiamento=None):
         """
-        Realiza uma análise financeira detalhada para um negócio de pizza.
+        Realiza uma análise financeira detalhada para um negócio.
 
         Esta função calcula métricas como EBITDA, EBIT, NOPAT, lucro econômico e fluxo de caixa, 
         considerando diversos fatores como investimento inicial, custos, receitas e despesas.
